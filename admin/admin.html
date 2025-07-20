@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tienda de Zapatos</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../style/style.css">
+  
+</head>
+<body>
+<div class="container py-5">
+  <!-- Encabezado -->
+  <div class="d-flex justify-content-between align-items-center mb-4 encabezado-azul">
+    <h1 class="mb-0">Catálogo de Zapatos</h1>
+    
+    <!-- Ícono de menú (hamburguesa) -->
+    <button class="btn btn-outline-primary btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+  </div>
+
+  <input type="hidden" id="zapatoId">
+
+  <!-- Catálogo -->
+  <div id="catalogoZapatos" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+    <!-- Tarjetas de zapatos -->
+  </div>
+</div>
+
+<!-- Menú lateral derecho -->
+<div class="offcanvas offcanvas-end d-flex flex-column" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="menuLateralLabel"></h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+
+  <div class="offcanvas-body d-flex flex-column">
+    <!-- Información del CEO -->
+    <div class="text-center border-bottom pb-3 mb-4">
+      <i class="bi bi-person-circle fs-1 text-primary mb-2"></i>
+      <h6 class="mb-1">Ingrid Tatiana Trullo Muñoz</h6>
+      <small class="text-muted">CEO - Zapatos Tata</small>
+    </div>
+
+    <!-- Botón agregar -->
+    <div class="d-grid gap-3 text-center">
+      <button class="btn btn-outline-success btn-primary" data-bs-toggle="modal" data-bs-target="#formModal" title="Agregar nuevo zapato">
+        <i class="bi bi-plus-circle fs-2"></i>
+      </button>
+    </div>
+
+    <!-- Botón cerrar sesión abajo -->
+    <div class="mt-auto pt-4 text-center border-top">
+      <button id="logoutBtn" class="btn btn-outline-danger btn-square" title="Cerrar sesión">
+        <i class="bi bi-power fs-4"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="formModalLabel">Agregar Zapato</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <form id="zapatoForm">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" required />
+          </div>
+          <div class="mb-3">
+            <label for="marca" class="form-label">Marca</label>
+            <input type="text" class="form-control" id="marca" required />
+          </div>
+          <div class="mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="precio" min="0" step="0.01" required />
+          </div>
+          <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen (URL)</label>
+            <input type="url" class="form-control" id="imagen" required />
+          </div>
+          <div class="mb-3">
+            <label for="tallas" class="form-label">Tallas disponibles (separadas por coma)</label>
+            <input type="text" class="form-control" id="tallas" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Stock</label>
+            <select id="stock" class="form-select" required>
+              <option value="disponible" selected>Disponible</option>
+              <option value="agotado">Agotado</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar zapato</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script type="module" src="admin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

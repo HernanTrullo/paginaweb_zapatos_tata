@@ -1,0 +1,23 @@
+/* Botón cuadrado personalizado */
+.btn-square {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+:root {
+  --bs-primary: #9ECAD6;
+  --bs-secondary: #F5CBCB;
+}
+.encabezado-azul {
+  background-color: #9ECAD6; /* Azul Bootstrap */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: black; /* Opcional: para que el texto sea visible */
+}
+.btn-primary {
+  background-color: #9ECAD6; /* Azul Bootstrap */
+  color: black
+}
